@@ -1,0 +1,49 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*.so
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+
+# Virtual environments
+.env
+.venv
+env/
+venv/
+
+# Dataset artifacts - exclude all data
+data/raw/
+data/interim/
+data/processed/
+data/manifests/*.jsonl
+
+# Model artifacts - exclude checkpoints and models
+artifacts/
+checkpoints/
+*.ckpt
+*.pth
+*.onnx
+
+# Outputs - exclude Hydra outputs
+outputs/
+
+# IDE and tooling
+.idea/
+.vscode/
+.DS_Store
+
+# Logs
+*.log
+training*.log
+
+# Audio files
+*.wav
+*.flac
+*.mp3
+*.opus
+
+# HuggingFace cache
+.cache/

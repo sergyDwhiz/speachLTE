@@ -1,0 +1,37 @@
+[project]
+name = "speach-lte"
+version = "0.1.0"
+description = "Lightweight speech-to-text modeling toolkit for Cameroonian Pidgin and Ewondo."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+    { name = "SpeachLTE Contributors" }
+]
+dependencies = [
+    "torch>=2.2.0",
+    "torchaudio>=2.2.0",
+    "librosa>=0.10.1",
+    "soundfile>=0.12.1",
+    "numpy>=1.24.0",
+    "pandas>=2.0.0",
+    "hydra-core>=1.3.2",
+    "omegaconf>=2.3.0",
+    "tqdm>=4.65.0",
+    "rich>=13.0.0"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-cov>=4.1.0",
+    "black>=24.1.0",
+    "ruff>=0.3.0",
+    "mypy>=1.8.0"
+]
+
+[build-system]
+requires = ["setuptools>=68.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]

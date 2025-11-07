@@ -1,0 +1,42 @@
+experiment:
+  name: base_conformer_ctc
+  seed: 1337
+  output_dir: artifacts/base-conformer
+
+data:
+  raw_root: data/raw
+  manifests_dir: data/manifests
+  prepared_manifest: ${data.manifests_dir}/prepared.jsonl
+  val_manifest:
+  vocab_path: configs/vocab.json
+  sample_rate: 16000
+  languages:
+    - wes
+    - ewo
+  max_frames: 3000
+  apply_spec_augment: true
+
+model:
+  input_dim: 80
+  vocab_size: 128
+  hidden_dim: 256
+  num_layers: 4
+  num_attention_heads: 4
+  ff_multiplier: 4
+  conv_kernel_size: 15
+  dropout: 0.1
+
+training:
+  epochs: 50
+  learning_rate: 0.0005
+  weight_decay: 0.01
+  grad_clip: 5.0
+  batch_size: 32
+  mixed_precision: true
+  device: auto
+
+hydra:
+  run:
+    dir: outputs/${now:%Y-%m-%d}/${now:%H-%M-%S}
+  job:
+    chdir: true
